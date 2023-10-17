@@ -5,13 +5,21 @@ import (
 	// "encoding/xml"
 	"encoding/xml"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
 )
 
 func main() {
-	xmlFilePath := "mule.xml" // Replace with your XML file path
+	xmlFilePath := "https://github.com/Sneha-Jayakumar123/FirstRepo/blob/main/mule.xml" // Replace with your XML file path
 
+	response, err := http.Get(xmlFilePath)
+    if err != nil {
+        fmt.Println("Error:", err)
+        return
+    }
+
+    defer response.Body.Close()
 	xmlFile, err := os.Open(xmlFilePath)
 	if err != nil {
 		fmt.Println("Error opening XML file:", err)
