@@ -15,7 +15,6 @@ func main() {
 	xmlFile, err := os.Open(xmlFilePath)
 	if err != nil {
 		fmt.Println("Error opening XML file:", err)
-		fmt.Println("Error opening XML file:", err)
 		return
 	}
 	defer xmlFile.Close()
